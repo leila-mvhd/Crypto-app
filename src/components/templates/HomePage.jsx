@@ -1,25 +1,31 @@
 import React, { useEffect, useState } from "react";
 import TableCoins from "../modules/TableCoins";
 import { getCoinList } from "../../services/CryptoAPI";
+import Pagination from "../modules/Pagination";
 
 const HomePage = () => {
+  const [coins, setCoins] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
 
-    const [coins,setCoins]=useState([])
-    const [isLoading,setIsLoading]=useState(true);
+  
 
   useEffect(() => {
     const getData = async () => {
-        const res = await fetch(getCoinList());
-        const json = await res.json();
-        setCoins(json);
-        setIsLoading(false);
-    }
+      setIsLoading(true);
+      const res = await fetch(getCoinList(page));
+      const json = await res.json();
+      setCoins(json);
+      setIsLoading(false);
+    };
 
     getData();
-
-  },[]);
+  }, [page]);
   return (
-      <TableCoins coins={coins} isLoading={isLoading}/>
+    <>
+      <Pagination page={page} setPage={setPage} />
+      <TableCoins coins={coins} isLoading={isLoading} />
+    </>
   );
 };
 
