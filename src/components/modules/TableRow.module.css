@@ -1,0 +1,26 @@
+tr{
+    height: 80px;
+    border-bottom: 2px solid #22262e;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.symbol{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.symbol img{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+.symbol span{
+    font-weight: 600;
+    color: rgb(144, 144, 144);
+}
+.success{
+    color: #57bc7c;
+}
+.error{
+    color: #d33636;
+}
