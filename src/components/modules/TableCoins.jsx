@@ -5,7 +5,6 @@ import TableRow from "./TableRow";
 import styles from "./TableCoin.module.css";
 
 const TableCoins = ({ coins, isLoading}) => {
-  console.log(coins);
   return (
     <div className={styles.container}>
       {isLoading ? <BarLoader color="#646cff" /> :
