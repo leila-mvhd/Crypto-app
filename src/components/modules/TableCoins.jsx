@@ -4,7 +4,7 @@ import BarLoader from "react-spinners/BarLoader";
 import TableRow from "./TableRow";
 import styles from "./TableCoin.module.css";
 
-const TableCoins = ({ coins, isLoading}) => {
+const TableCoins = ({ coins, isLoading,setChart}) => {
   return (
     <div className={styles.container}>
       {isLoading ? <BarLoader color="#646cff" /> :
@@ -21,7 +21,7 @@ const TableCoins = ({ coins, isLoading}) => {
       </thead>
       <tbody>
         {coins.map((coin) => (
-          <TableRow coin={coin} key={coin.id}/>
+          <TableRow coin={coin} key={coin.id} setChart={setChart}/>
         ))}
       </tbody>
     </table>}
